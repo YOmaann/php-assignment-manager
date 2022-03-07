@@ -29,7 +29,8 @@ const setup = () => {
     const opt = i.options[i.selectedIndex].value;
     updateQ();
     // alert(opt);
-    if (opt == 4 || opt == 20) j.classList.remove("hidden");
+    if (qlist[selectedA].inputs[parseInt(opt)] > 1)
+      j.classList.remove("hidden");
     else j.classList.add("hidden");
   });
 };
