@@ -37,7 +37,7 @@ class Assignment_DB {
         $this->connection = mysqli_connect($host, $username, $password, $db);
         $q2 = "create table assignment(assignment_no integer(3) primary key, no_of_questions integer(3))";
         $this->query($q2);
-        $q2 = "create table questions(question_no int(3), assignment_no int(3), statement varchar(1000), location varchar(1000), primary key(question_no, assignment_no))";
+        $q2 = "create table questions(question_no int(3), assignment_no int(3), statement varchar(1000), location varchar(1000), no_of_inputs int(3), primary key(question_no, assignment_no))";
         $this->query($q2);
     }
     function rowToarr($result) {
