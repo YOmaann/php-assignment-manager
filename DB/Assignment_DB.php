@@ -65,7 +65,7 @@ class Assignment_DB {
 
     function getQuestions($assign) {
         // $tmp_connection
-        $query = "select question_no, statement, location from assignment natural join questions where assignment.assignment_no=$assign ";
+        $query = "select question_no, statement, location, no_of_inputs from assignment natural join questions where assignment.assignment_no=$assign ";
         $result = $this->query($query);
         $resultR = $this->rowToarr($result);
         return $resultR;
@@ -100,7 +100,7 @@ class Assignment_DB {
         return $row["location"];
     }
     function getQuestionDetails($assign, $question) {
-        $query = "select question_no, statement, location from assignment natural join questions where assignment.assignment_no=$assign and questions.question_no=$question";
+        $query = "select question_no, statement, location, no_of_inputs from assignment natural join questions where assignment.assignment_no=$assign and questions.question_no=$question";
         $result = $this->query($query);
         $row = mysqli_fetch_assoc($result);
         if(!$row) return false;

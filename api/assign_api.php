@@ -11,8 +11,10 @@ foreach($out["rows"] as $a) {
     $count = $a["no_of_questions"];
     $questions = array_column($a["questions"]["rows"], "question_no");
     $statements = array_column($a["questions"]["rows"], "statement");
+    $no_of_inputs = array_column($a["questions"]["rows"], "no_of_inputs");
+    $no_of_inputs = array_combine($questions, $no_of_inputs);
     $statements = array_combine($questions, $statements);
-    $result[$a['assignment_no']] = ["questions" => $questions, "questionsDone" => $count, "statements" => $statements];
+    $result[$a['assignment_no']] = ["questions" => $questions, "questionsDone" => $count, "statements" => $statements, "inputs" => $no_of_inputs];
 }
 
 // print_r($result);
