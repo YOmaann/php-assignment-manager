@@ -32,18 +32,16 @@ $error = "Something went wrong !";
     <div class="main">
         <?php
         if($mode == 'new') {
-            
-        writeF($location, $code, false);
+            writeF($location, $code, false);
             $db->increamentAssC($assignment);
             $result = $db->insertInto("questions", [$question, $assignment, $statement, $location, $inputs]);
             if($result) echo "<span class='assign'>Successfully added Question $question to Assignment $assignment</span>";
             else echo $error;
         }
         else if($mode == 'edit') {
-            
-        writeF($location, $code, false);
-            $values = ["statement" => $statement];
-            $where = ["question_no" => $question, "assignment_no" => $assignment, "no_of_inputs" => $inputs];
+            writeF($location, $code, false);
+            $values = ["statement" => $statement, "no_of_inputs" => $inputs];
+            $where = ["question_no" => $question, "assignment_no" => $assignment];
             $result = $db->update("questions", $values, $where);
             if($result) echo "<span class='assign'>Successfully edited Question $question in Assignment $assignment</span>";
             else echo $error;
