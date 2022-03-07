@@ -11,6 +11,7 @@ $assignment = $_REQUEST['assignment'];
 if ($mode != 'delete'){
     $statement = $_REQUEST['statement'];
     $code = $_REQUEST['code'];
+    $inputs = $_REQUEST['inputs'];
 }
 
 $location = "../assignments/$assignment/$question.php";
@@ -34,7 +35,7 @@ $error = "Something went wrong !";
             
         writeF($location, $code, false);
             $db->increamentAssC($assignment);
-            $result = $db->insertInto("questions", [$question, $assignment, $statement, $location]);
+            $result = $db->insertInto("questions", [$question, $assignment, $statement, $location, $inputs]);
             if($result) echo "<span class='assign'>Successfully added Question $question to Assignment $assignment</span>";
             else echo $error;
         }
@@ -42,7 +43,7 @@ $error = "Something went wrong !";
             
         writeF($location, $code, false);
             $values = ["statement" => $statement];
-            $where = ["question_no" => $question, "assignment_no" => $assignment];
+            $where = ["question_no" => $question, "assignment_no" => $assignment, "no_of_inputs" => $inputs];
             $result = $db->update("questions", $values, $where);
             if($result) echo "<span class='assign'>Successfully edited Question $question in Assignment $assignment</span>";
             else echo $error;

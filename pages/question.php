@@ -11,6 +11,7 @@ $db = new Assignment_DB("assignment");
 $statement = '';
 $code = '';
 $location = '';
+$no_of_inputs = '';
 
 if(isset($_REQUEST["option"])){
 $question = $_REQUEST['option'];
@@ -18,7 +19,7 @@ $question_info = $db->getQuestionDetails($assignment, $question);
 $statement = $question_info['statement'];
 $location = $question_info['location'];
 $code = readF($location, false);
-
+$no_of_inputs = $question_info['no_of_inputs'];
 }
 
 $questionsin = array_column($db->getQuestions($assignment)['rows'], "question_no");
@@ -55,6 +56,9 @@ $questionsin = array_column($db->getQuestions($assignment)['rows'], "question_no
                 echo "<div class='elements'>Location : ".$question_info['location'];
             }
           ?>
+        </div>
+        <div class="elements">
+          <span>No. of inputs</span><span><input type="text" name="inputs" value="<?= $no_of_inputs ?>" required/></span>
         </div>
         <div class="elements" id = 'm'>
           <span>Input Question Statement</span><span><textarea name="statement" id="n" cols="20" rows="3" class="question_filler"><?= $statement?></textarea></span>
