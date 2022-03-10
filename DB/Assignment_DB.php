@@ -64,7 +64,11 @@ class Assignment_DB {
         // }
     }
 
-
+    function getLabels($assign, $question) {
+        $query = "select statement from label where assignment_no=$assign and question_no=$question order by label_no";
+        $labels = $this->query($query);
+        return $this->rowToarr($labels);
+    }
     function getQuestions($assign) {
         // $tmp_connection
         $query = "select question_no, statement, location, no_of_inputs from assignment natural join questions where assignment.assignment_no=$assign ";
