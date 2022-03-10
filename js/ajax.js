@@ -1,7 +1,7 @@
-function work() {
+function work(link) {
   return new Promise((resolve) => ajax(link, resolve));
 }
-const ajax = (link = "./api/assign_api.php", resolve) => {
+const ajax = (link, resolve) => {
   const aj = new XMLHttpRequest();
   aj.open("GET", link);
   aj.send();
@@ -10,7 +10,7 @@ const ajax = (link = "./api/assign_api.php", resolve) => {
   };
 };
 
-async function getQ() {
-  const q = await work();
+async function getQ(link) {
+  const q = await work(link);
   return q;
 }

@@ -57,7 +57,7 @@ const setup = () => {
   });
 };
 window.onload = () => {
-  const p = getQ();
+  const p = getQ("./api/assign_api.php");
   p.then((value) => {
     const result = JSON.parse(value);
     qlist = result;
