@@ -12,12 +12,15 @@ $statement = '';
 $code = '';
 $location = '';
 $no_of_inputs = '';
+$labels = '';
 
 if(isset($_REQUEST["option"])){
 $question = $_REQUEST['option'];
 $question_info = $db->getQuestionDetails($assignment, $question);
 $statement = $question_info['statement'];
 $location = $question_info['location'];
+// print_r($question_info['labels']);
+$labels = implode(",", $question_info['labels']);
 $code = readF($location, false);
 $no_of_inputs = $question_info['no_of_inputs'];
 }
@@ -31,8 +34,8 @@ $questionsin = array_column($db->getQuestions($assignment)['rows'], "question_no
   <head>
     <title>Question manager</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <script src="./js/ajax.js"></script>
-    <script src="./js/script.js"></script> -->
+     <!-- <script src="./js/.js"></script>
+    <script src="./js/elements.js"></script> -->
   </head>
   <body>
     <div class="main width30">
@@ -59,6 +62,9 @@ $questionsin = array_column($db->getQuestions($assignment)['rows'], "question_no
         </div>
         <div class="elements">
           <span>No. of inputs</span><span><input type="text" name="inputs" value="<?= $no_of_inputs ?>" required/></span>
+        </div>
+        <div class="elements">
+          <span>Labels</span><span><input type="text" name="labels" value="<?= $labels ?>" required/></span>
         </div>
         <div class="elements" id = 'm'>
           <span>Input Question Statement</span><span><textarea name="statement" id="n" cols="20" rows="3" class="question_filler"><?= $statement?></textarea></span>

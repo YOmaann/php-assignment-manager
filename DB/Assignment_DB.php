@@ -121,6 +121,7 @@ class Assignment_DB {
         $query = "select question_no, statement, location, no_of_inputs from assignment natural join questions where assignment.assignment_no=$assign and questions.question_no=$question";
         $result = $this->query($query);
         $row = mysqli_fetch_assoc($result);
+        $row["labels"] = array_column($this->getLabels($assign, $question)['rows'], "statement");
         if(!$row) return false;
         return $row;
     }
@@ -144,9 +145,12 @@ class Assignment_DB {
     }
     function deleteQuestion($assign, $question) {
         // echo $assign." -------------".$question."<br>";
-        return $this->deleteRow("questions", ["assignment_no" => $assign, "question_no"=> $question]);
+        return $this->deleteRow("questions", ["assignment_no" => $assign, "question_no"=> $question]) && $this->deleteLabels($question, $assign);
         // $query = "delete from assignment where assignment_no=$assign";
         // $this->query($query);
+    }
+    function deleteLabels($assign, $question) {
+        return $this->deleteRow("label", ["assignment_no" => $assign, "question_no"=> $question]);
     }
     function deleteAllQuestions($assign) {
         return $this->deleteRow("questions", ["assignment_no" => $assign]);
@@ -155,5 +159,13 @@ class Assignment_DB {
         
         return $this->deleteRow("assignment", ["assignment_no" => $assign]) && $this->deleteAllQuestions($assign);
     }
+    function addNewLabels($assignment, $question, $labels) {
+        $result = $this->deleteLabels($assignment, $question);
+        $i = 1;
+        foreach($labels as $l) {
+          $result = $result && $this->insertInto("label", [$i++, $question, $assignment, $l]);
+        }
+      }
+      return $result;
 }
 ?>

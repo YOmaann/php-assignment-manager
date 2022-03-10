@@ -12,6 +12,7 @@ if ($mode != 'delete'){
     $statement = $_REQUEST['statement'];
     $code = $_REQUEST['code'];
     $inputs = $_REQUEST['inputs'];
+    $labels = explode(",", $_REQUEST['labels']);
 }
 
 $location = "../assignments/$assignment/$question.php";
@@ -19,6 +20,9 @@ $location = "../assignments/$assignment/$question.php";
 $db = new Assignment_DB("assignment");
 
 $error = "Something went wrong !";
+
+
+
 ?>
 
 <html>
@@ -35,6 +39,7 @@ $error = "Something went wrong !";
             writeF($location, $code, false);
             $db->increamentAssC($assignment);
             $result = $db->insertInto("questions", [$question, $assignment, $statement, $location, $inputs]);
+            $result = $result && $db->addNewLabels($assignment, $question, $labels);
             if($result) echo "<span class='assign'>Successfully added Question $question to Assignment $assignment</span>";
             else echo $error;
         }
@@ -43,6 +48,9 @@ $error = "Something went wrong !";
             $values = ["statement" => $statement, "no_of_inputs" => $inputs];
             $where = ["question_no" => $question, "assignment_no" => $assignment];
             $result = $db->update("questions", $values, $where);
+            // if(!$result) die("Error deleting errors !");
+            $result = $result && $db->addNewLabels($assignment, $question, $labels);
+            // if(!$result) die("Error deleting errors !");
             if($result) echo "<span class='assign'>Successfully edited Question $question in Assignment $assignment</span>";
             else echo $error;
         }
