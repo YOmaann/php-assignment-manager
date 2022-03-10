@@ -22,4 +22,14 @@ function writeF($name, $content, $default = true) {
     fclose($handle);
 }
 
+function getLineBLine($name, $default = true) {
+    if($default) $name = sanitize($name);
+    if(!file_exists($name)) return false;
+    $lines = [];
+    $handle = fopen($name, 'r');
+    while($line = fgets($handle))
+        array_push($lines, $line);
+    return $lines;
+}
+
 ?>
