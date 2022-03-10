@@ -27,4 +27,10 @@ function multiple($del = ",", $default = false) {
     return $numarr;
 }
 
+function multipleN() {
+    global $N, $M;
+    $N = $N[0];
+    $M = $N[1];
+}
+
 ?>

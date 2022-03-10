@@ -30,6 +30,7 @@ elements.options = (name = "n[]", value = 0) => {
   const element = document.createElement("input");
   element.type = "checkbox";
   element.name = name;
+  element.checked = true;
   element.classList.add("hidden");
   element.value = value;
   element.selected = "selected";
