@@ -3,6 +3,7 @@
     <title>Assignment</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/ajax.js"></script>
+    <script src="./js/elements.js"></script>
     <script src="./js/script.js"></script>
   </head>
   <body>
@@ -12,12 +13,11 @@
           <input type="text" name="assignment" id="assignment" class="hidden">
           <span class="left pointer">&lt;</span><span class="assignment">Assignment</span><span class="ano"></span><span class="right pointer">&gt;</span>
         </div>
-        <div class="elements">
+        <div class="elements absolute">
           <div class='container container-2'><span>Question Statement</span><span class='cont-2-sub'></span></div>
         </div>
-        <div class="elements">
-          <span>N</span><span><input type="text" name="n" required/></span>
-        </div>
+        <div class="elements_con">
+      </div>
         <div class="elements">
           <span>Select Question</span>
           <div class="op" style="width: auto;">
@@ -29,6 +29,7 @@
         <input type="submit" value="SUBMIT"></form>
         <div class="elements center"><a href="./pages/assign.php" class="manage">Manage assignments</a></div>
         </div>
+        <!-- <select name="n[]" id="n" class="hidden"></select> -->
       </form>
     </div>
   </body>

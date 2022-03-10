@@ -4,7 +4,7 @@
 
 $assignment_no = $_REQUEST["assignment"];
 $N = $_REQUEST["n"];
-$M = $_REQUEST['m'];
+// $M = $_REQUEST['m'];
 $question_no =  $_REQUEST["x"];
 
 include '../includes/input.php';

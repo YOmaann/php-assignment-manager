@@ -6,6 +6,18 @@
   padding: 0;
   font-size: 16px;
 }
+/* animations */
+@keyframes bottom_up {
+  from {
+    transform: translatex(0.6rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
 body {
   padding: 3rem;
   font-family: "SVN-Gilroy", sans-serif;
@@ -18,7 +30,7 @@ body {
   width: 20rem;
   padding: 4rem;
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
-  background-color: white;
+  background-color: #eeeeee;
   /* background-color: #fffafa; */
 }
 .width30 {
@@ -46,6 +58,9 @@ input[type="email"]:focus,
 .question_filler:focus {
   outline: none;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+.text_anim {
+  animation: bottom_up 0.1s linear;
 }
 input[type="submit"] {
   cursor: pointer;
@@ -131,6 +146,7 @@ select {
   max-height: 2rem;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #dcdcdc;
 }
 .container-2:hover {
   max-height: fit-content;
@@ -220,4 +236,14 @@ select {
 .noa::after {
   content: "done";
   margin-left: 0.5rem;
+}
+
+.elements_con {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+}
+
+.absolute {
+  position: absolute;
 }
