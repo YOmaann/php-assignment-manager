@@ -75,6 +75,7 @@ if(isset($_REQUEST["d-assignment"])) {
         <div class="add-q"><input type="text" name="aqno" class=" text_a"><span class="add-q-text"> Add an assignmennt </span></div></label>
             </form>
             <div class="elements center"><a href="../index.html" class="manage">Check assignments</a></div>
+            <div class="elements center"><a href="files.php" class="manage">See Files</a></div>
     </div>
     <div class="main <?= ($flag_ui != 1)? "hidden":""  ?>">
     <form method="post" action="question.php" id="<?= ($flag_ui != 1)? "":"submet"  ?>">
@@ -115,7 +116,6 @@ if(isset($_REQUEST["d-assignment"])) {
         </label>
         </form>
         <div class="elements center"><a href="assign.php" class="manage">Manage assignments</a></div>
-        <div class="elements center"><a href="files.php" class="manage">See Files</a></div>
     </div>
 </body>
 </html>
