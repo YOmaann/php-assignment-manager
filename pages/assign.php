@@ -115,6 +115,7 @@ if(isset($_REQUEST["d-assignment"])) {
         </label>
         </form>
         <div class="elements center"><a href="assign.php" class="manage">Manage assignments</a></div>
+        <div class="elements center"><a href="files.php" class="manage">See Files</a></div>
     </div>
 </body>
 </html>

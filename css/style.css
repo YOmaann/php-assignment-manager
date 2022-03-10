@@ -9,6 +9,7 @@
 body {
   padding: 3rem;
   font-family: "SVN-Gilroy", sans-serif;
+  background-color: #dcdcdc;
 }
 .main {
   border: 3px solid black;
@@ -17,6 +18,7 @@ body {
   width: 20rem;
   padding: 4rem;
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
+  background-color: white;
   /* background-color: #fffafa; */
 }
 .width30 {
@@ -111,6 +113,7 @@ select {
 .container-1 {
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 .main-flex {
   display: flex;
@@ -200,4 +203,20 @@ select {
 }
 .margin_top {
   margin-top: 1rem;
+}
+.container-1:hover span:last-child {
+  transform: translateX(-0.2rem);
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+.noa {
+  transform: translateX(0.2rem);
+  opacity: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s linear;
+}
+.noa::after {
+  content: "done";
+  margin-left: 0.5rem;
 }

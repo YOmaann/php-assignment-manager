@@ -39,6 +39,8 @@ class Assignment_DB {
         $this->query($q2);
         $q2 = "create table questions(question_no int(3), assignment_no int(3), statement varchar(1000), location varchar(1000), no_of_inputs int(3), primary key(question_no, assignment_no))";
         $this->query($q2);
+        $q2 = "create table label(label_no int(3), question_no int(3), assignment_no int(3), statement varchar(1000), primary key(label_no, question_no, assignment_no))";
+        $this->query($q2);
     }
     function rowToarr($result) {
         $out = ["count" => mysqli_num_rows($result),"rows" => []];
