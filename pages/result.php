@@ -12,6 +12,7 @@ include '../includes/files.php';
 include '../includes/math.php';
 include '../includes/string.php';
 include '../includes/array.php';
+include '../includes/table.php';
 include '../DB/Assignment_DB.php';
 
 // print_r($N);
