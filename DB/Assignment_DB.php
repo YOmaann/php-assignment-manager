@@ -165,7 +165,8 @@ class Assignment_DB {
         foreach($labels as $l) {
           $result = $result && $this->insertInto("label", [$i++, $question, $assignment, $l]);
         }
+        return $result;
       }
-      return $result;
+
 }
 ?>
