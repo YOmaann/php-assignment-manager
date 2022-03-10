@@ -14,6 +14,9 @@ include '../includes/string.php';
 include '../includes/array.php';
 include '../DB/Assignment_DB.php';
 
+
+multipleN();
+
 $db = new Assignment_DB("assignment");
 $location = $db->getFunctionLocation($assignment_no, $question_no);
 

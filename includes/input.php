@@ -30,7 +30,8 @@ function multiple($del = ",", $default = false) {
 function multipleN() {
     global $N, $M;
     $N = $N[0];
-    $M = $N[1];
+    if(isset($N[1]))
+        $M = $N[1];
 }
 
 ?>
