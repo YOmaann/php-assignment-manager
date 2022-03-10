@@ -1,7 +1,9 @@
 <?php
+include '../includes/table.php';
+
 function question() {
 $M = 100;
-$tb = new Table;
+$tb = new Table();
 $da = 3/100 * $M;
 $hra = 15/100 * $M;
 $pf = 12/100 * $M;

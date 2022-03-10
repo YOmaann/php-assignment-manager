@@ -7,7 +7,8 @@ class Table {
         $this->result = "";
     }
     function getTable() {
-        return "<table>$this->result</table>";
+        global $result;
+        return "<table>$result</table>";
     }
     function addRow($data, $heading = false) {
         global $result;
