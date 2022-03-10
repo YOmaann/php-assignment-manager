@@ -70,7 +70,7 @@ $questionsin = array_column($db->getQuestions($assignment)['rows'], "question_no
           <span>Input Question Statement</span><span><textarea name="statement" id="n" cols="20" rows="3" class="question_filler" spellcheck="false"><?= $statement?></textarea></span>
         </div>
         <div class="elements" id = 'm'>
-          <span><textarea name="code" id="n" cols="60" rows="20" class="question_filler code" placeholder="Input code here"><?= readF($location, false) ?></textarea></span>
+          <span><textarea name="code" id="n" cols="40" rows="20" class="question_filler code" placeholder="Input code here"><?= readF($location, false) ?></textarea></span>
         </div>
         <div class="submit">
         <input type="submit" value="SUBMIT"></form>
