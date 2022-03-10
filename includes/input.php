@@ -10,8 +10,11 @@ function displayArr($arr, $del = " ") {
 
 // String handling
 
-function multiple($del = ",") {
-    global $N;
+function multiple($del = ",", $default = false) {
+    if(!$default)
+        global $N;
+    else
+        $N = $default;
     $nums = explode($del,  $N);
     $numarr = [];
     foreach($nums as $num ) {
