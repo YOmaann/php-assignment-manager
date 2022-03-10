@@ -1,6 +1,4 @@
 <?php
-include 'files.php';
-include 'input.php';
 
 function loadCSV($name, $default = true) {
     $lines = getLineBLine($name, $default);
