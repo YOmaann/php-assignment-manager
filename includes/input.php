@@ -28,12 +28,13 @@ function multiple($del = ",", $default = false) {
 }
 
 function multipleN() {
-    global $N, $M;
+    global $N, $M, $L;
     $tmp = $N;
     $N = $N[0];
     if(isset($N[1]))
         $M = $tmp[1];
     // echo $M;
+    $L = $tmp;
 }
 
 ?>
