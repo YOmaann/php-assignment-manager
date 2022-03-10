@@ -1,0 +1,2 @@
+lucky,1,kispotta
+a,b,c
