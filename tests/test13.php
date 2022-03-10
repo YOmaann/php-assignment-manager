@@ -1,6 +1,6 @@
 <?php
 function question() {
-global $N, $M;
+$M = 100;
 $tb = new Table;
 $da = 3/100 * $M;
 $hra = 15/100 * $M;
@@ -14,7 +14,7 @@ $tb->addRow(["Provident Fund", $pf]);
 $tb->addRow(["Gross Salary", $gross]);
 $tb->addRow(["Net Salary", $net]);
 
-echo "NAME : $N <br> Basic Salary : $M <br>";
+// echo "NAME : $N <br> Basic Salary : $M <br>";
 
 echo $tb->getTable();
 }

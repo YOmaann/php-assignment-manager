@@ -19,6 +19,7 @@ include '../DB/Assignment_DB.php';
 
 multipleN();
 
+// echo intval($M);
 
 
 $db = new Assignment_DB("assignment");
