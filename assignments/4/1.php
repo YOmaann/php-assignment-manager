@@ -18,7 +18,7 @@ $tb->addRow(["Provident Fund", $pf]);
 $tb->addRow(["Gross Salary", $gross]);
 $tb->addRow(["Net Salary", $net]);
 
-$csv = toOneCSV([$name, $M, $da, $hra, $pf, $gross, $net]);
+$csv = toOneCSV([$N, $M, $da, $hra, $pf, $gross, $net]);
 writeF($file, $csv);
 echo "NAME : $N <br> Basic Salary : $M <br><br>";
 
