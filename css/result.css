@@ -10,6 +10,7 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
+  background-color: #eeeeee;
 }
 .answer {
   padding: 0;

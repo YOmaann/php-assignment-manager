@@ -241,7 +241,7 @@ select {
 .elements_con {
   display: flex;
   flex-direction: column;
-  margin-top: 8rem;
+  margin-top: 9rem;
 }
 
 .absolute {
