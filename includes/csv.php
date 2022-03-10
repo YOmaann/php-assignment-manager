@@ -22,5 +22,8 @@ function toCSV($content) {
     return $out;
 }
 
+function toOneCSV($content) {
+    return toCSV([$content])[0];
+}
 
 ?>
