@@ -29,9 +29,11 @@ function multiple($del = ",", $default = false) {
 
 function multipleN() {
     global $N, $M;
+    $tmp = $N;
     $N = $N[0];
     if(isset($N[1]))
-        $M = $N[1];
+        $M = $tmp[1];
+    // echo $M;
 }
 
 ?>

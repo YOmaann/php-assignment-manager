@@ -54,9 +54,6 @@ const setup = () => {
     updateQ();
     updateL();
     // alert(opt);
-    if (qlist[selectedA].inputs[parseInt(opt)] > 1)
-      j.classList.remove("hidden");
-    else j.classList.add("hidden");
   });
 };
 window.onload = () => {
