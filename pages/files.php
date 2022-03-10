@@ -36,7 +36,7 @@ $files = glob($folder);
         ?>
     </div>
     <div class="file_open">
-        <div class="button" onclick="toggle()">Close</div>
+        <div class="button" onclick="toggle()">[Close]</div>
         <div class="content_file">
 
         </div>

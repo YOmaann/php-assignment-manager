@@ -130,6 +130,7 @@ select {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  background-color: #dcdcdc;
 }
 .main-flex {
   display: flex;
