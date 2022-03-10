@@ -16,9 +16,10 @@ function loadCSV($name, $default = true) {
 function toCSV($content) {
     $out = [];
     foreach($content as $c) {
-        array_push($out,implode(",", $content));
+        array_push($out, implode(",", $c));
     }
-    return implode("\n\r", $out);
+    $out = implode("\n\r", $out);
+    return $out;
 }
 
 
