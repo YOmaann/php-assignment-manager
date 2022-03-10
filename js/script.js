@@ -8,6 +8,9 @@ const updateQ = () => {
   );
 };
 
+const updateL = () => {
+  
+}
 const setup = () => {
   upA();
   updateQ();

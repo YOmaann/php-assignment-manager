@@ -1,0 +1,5 @@
+const elements = {};
+
+elements.inputs = () => {
+    
+}
