@@ -27,6 +27,4 @@ function multiple($del = ",", $default = false) {
     return $numarr;
 }
 
-// File handling
-
 ?>
