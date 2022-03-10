@@ -21,7 +21,7 @@ const updateL = () => {
   const label = qlist[selectedA].labels[opt];
 
   for (let i = 0; i < nI; i++) {
-    const tmp = elements.inputs(label[opt] || defaultL[i]);
+    const tmp = elements.inputs(label[i] || defaultL[i]);
     // const option = elements.options(0, i);
     inputs.appendChild(tmp);
   }
