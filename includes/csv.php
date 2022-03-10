@@ -13,4 +13,10 @@ function loadCSV($name, $default = true) {
 }
 
 
+function toCSV($content) {
+    // $out = "";
+    return implode(",", $content);
+}
+
+
 ?>
