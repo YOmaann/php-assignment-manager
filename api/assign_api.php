@@ -14,7 +14,9 @@ foreach($out["rows"] as $a) {
     $no_of_inputs = array_column($a["questions"]["rows"], "no_of_inputs");
     $no_of_inputs = array_combine($questions, $no_of_inputs);
     $statements = array_combine($questions, $statements);
-    $result[$a['assignment_no']] = ["questions" => $questions, "questionsDone" => $count, "statements" => $statements, "inputs" => $no_of_inputs];
+    $labels = array_column(array_column($a["questions"]["rows"], "labels"), "rows");
+    array_map("array_values", $labels);
+    $result[$a['assignment_no']] = ["questions" => $questions, "questionsDone" => $count, "statements" => $statements, "inputs" => $no_of_inputs, "labels" => $labels];
 }
 
 // print_r($result);

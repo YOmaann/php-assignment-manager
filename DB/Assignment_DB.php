@@ -69,11 +69,22 @@ class Assignment_DB {
         $labels = $this->query($query);
         return $this->rowToarr($labels);
     }
+    function getAllLabels($assign) {
+        $query = "select statement from label where assignment_no=$assign order by question_no";
+        $labels = $this->query($query);
+        return $this->rowToarr($labels);
+    }
     function getQuestions($assign) {
         // $tmp_connection
         $query = "select question_no, statement, location, no_of_inputs from assignment natural join questions where assignment.assignment_no=$assign ";
         $result = $this->query($query);
+        // $query = 
         $resultR = $this->rowToarr($result);
+        // print_r($resultR);
+
+        foreach($resultR['rows'] as &$q) {
+            $q['labels'] = array_column(($this->getLabels($assign , $q['question_no'])['rows']), "statement");
+        }
         return $resultR;
     }
     function assignmentExist($assign) {
@@ -90,6 +101,7 @@ class Assignment_DB {
         $assignments = $this->getRows("assignment");
         foreach($assignments["rows"] as &$a) {
             $a["questions"] = $this->getQuestions($a["assignment_no"]);
+
         }
         return $assignments;
     }
