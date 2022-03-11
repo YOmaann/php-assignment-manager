@@ -19,7 +19,6 @@ window.onload = () => {
       const value = ev.target.value;
       de.checked = true;
       ev.target.checked = false;
-
       toggle(value);
     });
   });
