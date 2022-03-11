@@ -146,4 +146,10 @@ function pattern($string, $pat) {
         echo $tstring[$i - 1];
     }
 }
+
+function padString($string, $length) {
+    $strL = strlen($string);
+    if($length < $strL) return $string;
+    return $string.str_repeat(" ", $length - $strL);
+}
 ?>
