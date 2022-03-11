@@ -11,7 +11,7 @@ function loadCSV($name, $default = true) {
 }
 
 
-function toCSV($content) {
+function toCSV($content, $length = null) {
     $out = [];
     foreach($content as $c) {
         array_push($out, implode(",", $c));

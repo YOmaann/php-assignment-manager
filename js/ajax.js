@@ -3,6 +3,9 @@ function work(link) {
 }
 const ajax = (link, resolve) => {
   const aj = new XMLHttpRequest();
+  aj.setRequestHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  aj.setRequestHeader("Pragma", "no-cache");
+  aj.setRequestHeader("Expires", "0");
   aj.open("GET", link);
   aj.send();
   aj.onreadystatechange = () => {

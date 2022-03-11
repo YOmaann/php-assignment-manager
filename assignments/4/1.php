@@ -5,7 +5,6 @@ global $N, $M;
 $file = "payslip.txt";
 $tb = new Table;
 
-
 $da = 3/100 * $M;
 $hra = 15/100 * $M;
 $pf = 12/100 * $M;
@@ -23,6 +22,7 @@ writeF($file, $csv);
 echo "NAME : $N <br> Basic Salary : $M <br><br>";
 
 echo $tb->getTable();
+echo "<br>CSV file : $csv";
 }
 question();
 ?>
