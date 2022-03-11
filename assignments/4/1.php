@@ -18,7 +18,7 @@ $tb->addRow(["Gross Salary", $gross]);
 $tb->addRow(["Net Salary", $net]);
 
 $csv = toOneCSV([$N, $M, $da, $hra, $pf, $gross, $net]);
-writeF($file, $csv);
+appendF($file, $csv);
 echo "NAME : $N <br> Basic Salary : $M <br><br>";
 
 echo $tb->getTable();

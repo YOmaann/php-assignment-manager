@@ -27,7 +27,7 @@ function appendF($name, $content, $default = true) {
         $name = sanitize($name);
     // if(!file_exists($name)) return false;
     $handle = fopen($name, "a");
-    fwrite($handle, $content);
+    fwrite($handle, "\n\r$content");
     fclose($handle);
 }
 
