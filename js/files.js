@@ -4,7 +4,7 @@ const toggle = (put) => {
   const content = document.querySelector(".content_file");
   const inside = getQ(put);
   inside.then((value) => {
-    content.innerHTML = value;
+    content.innerHTML = `<pre>${value}</pre>`;
   });
   el1.classList.toggle("go_away");
   el2.classList.toggle("fade_in");
