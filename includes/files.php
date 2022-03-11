@@ -22,6 +22,15 @@ function writeF($name, $content, $default = true) {
     fclose($handle);
 }
 
+function appendF($name, $content, $default = true) {
+    if($default)
+        $name = sanitize($name);
+    // if(!file_exists($name)) return false;
+    $handle = fopen($name, "a");
+    fwrite($handle, $content);
+    fclose($handle);
+}
+
 function getLineBLine($name, $default = true) {
     if($default) $name = sanitize($name);
     if(!file_exists($name)) return false;
