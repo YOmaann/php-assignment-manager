@@ -30,22 +30,22 @@ const updateL = () => {
   // const el = elements.inputs()
 };
 
-const update = () => {
-  upA();
+const update = (flag) => {
+  upA(flag);
   updateQ();
   updateL();
 };
 const setup = () => {
-  update();
+  update(3);
   document.querySelector(".left").addEventListener("click", () => {
     if (selectedA == 1) selectedA = maxA;
     else selectedA--;
-    update();
+    update(1);
   });
   document.querySelector(".right").addEventListener("click", () => {
     if (selectedA == maxA) selectedA = 1;
     else selectedA++;
-    update();
+    update(2);
   });
   const i = document.getElementById("x");
   i.addEventListener("change", (ev) => {
@@ -85,10 +85,29 @@ let selectedA = 1;
 // const tmpL;
 let qlist, maxA;
 
-const upA = function () {
+const upA = function (flag) {
+  const assign1 = document.querySelector(".swiper");
+  const ano = document.querySelector(".ano");
   document.querySelector("#assignment").value = selectedA;
-  document.querySelector(".ano").innerHTML = selectedA;
+  ano.innerHTML = selectedA;
+
+  // transition manager
+  assign1.classList.remove("swipe_left");
+  assign1.classList.remove("swipe_right");
+
+  assign1.offsetWidth;
+  // ano.offsetWidth;
+
+  if (flag == 2) {
+    assign1.classList.add("swipe_left");
+    // ano.classList.add("swipe_left");
+  } else if (flag == 1) {
+    // ano.classList.add("swipe_right");
+    assign1.classList.add("swipe_right");
+  }
+
   const options = document.querySelector("#x");
+
   // alert("Hello");
   // delete all options
   while (options.firstChild) {

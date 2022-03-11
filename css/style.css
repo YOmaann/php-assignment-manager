@@ -102,6 +102,7 @@ select {
   margin-bottom: 1.5rem;
   user-select: none;
   width: 100%;
+  overflow: hidden;
 }
 .pointer {
   margin: 2rem;
@@ -144,7 +145,7 @@ select {
 .container-2 {
   overflow: hidden;
   text-align: justify;
-  max-height: 2rem;
+  max-height: 1.7rem;
   flex-direction: column;
   justify-content: space-between;
   background-color: #dcdcdc;
@@ -315,4 +316,54 @@ select {
 
 .button {
   cursor: pointer;
+}
+
+@keyframes swipe_left_anim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  60% {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.swipe_left {
+  animation: swipe_left_anim 0.2s linear forwards;
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes swipe_right_anim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  60% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.swipe_right {
+  animation: swipe_right_anim 0.2s linear forwards;
+  /* animation-iteration-count: infinite; */
+}
+
+.swiper {
+  display: inline-block;
 }
