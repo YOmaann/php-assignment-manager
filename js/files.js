@@ -15,7 +15,11 @@ window.onload = () => {
   butts.forEach((value) => {
     value.checked = false;
     value.addEventListener("change", (ev) => {
+      const de = document.getElementsByName("option");
       const value = ev.target.value;
+      de.checked = true;
+      ev.target.checked = false;
+
       toggle(value);
     });
   });
