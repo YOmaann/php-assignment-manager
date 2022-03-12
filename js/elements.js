@@ -37,3 +37,10 @@ elements.options = (name = "n[]", value = 0) => {
   //   element.indexN = id
   return element;
 };
+
+elements.span = (name, contents = "") => {
+  const element = document.createElement("span")
+  element.classList.add(name)
+  element.innerHTML = contents
+  return element
+}

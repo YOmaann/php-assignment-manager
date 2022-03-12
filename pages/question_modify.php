@@ -35,12 +35,13 @@ $error = "Something went wrong !";
   <body>
     <div class="main">
         <?php
+        echo "<span class='modify'>";
         if($mode == 'new') {
             writeF($location, $code, false);
             $db->increamentAssC($assignment);
             $result = $db->insertInto("questions", [$question, $assignment, $statement, $location, $inputs]);
             $result = $result && $db->addNewLabels($assignment, $question, $labels);
-            if($result) echo "<span class='assign'>Successfully added Question $question to Assignment $assignment</span>";
+            if($result) echo "Successfully added Question $question to Assignment $assignment</span>";
             else echo $error;
         }
         else if($mode == 'edit') {
@@ -51,7 +52,7 @@ $error = "Something went wrong !";
             // if(!$result) die("Error deleting errors !");
             $result = $result && $db->addNewLabels($assignment, $question, $labels);
             // if(!$result) die("Error deleting errors !");
-            if($result) echo "<span class='assign'>Successfully edited Question $question in Assignment $assignment</span>";
+            if($result) echo "Successfully edited Question $question in Assignment $assignment</span>";
             else echo $error;
         }
         else if($mode == 'delete') {
@@ -59,7 +60,7 @@ $error = "Something went wrong !";
             $db->decreamentAssC($assignment);
             echo $location."<br>";
             unlink($location);
-            if($result) echo "<span class='assign'>Successfully deleted Question $question from Assignment $assignment</span>";
+            if($result) echo "Successfully deleted Question $question from Assignment $assignment</span>";
             else echo $error;
         }
         ?>

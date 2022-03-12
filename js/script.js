@@ -1,4 +1,9 @@
+let qlist, maxA;
+var selectedA = 1;
+let listQ;
+
 const updateQ = () => {
+  const selectedA = listQ[window.selectedA - 1];
   i = document.getElementById("x");
   const opt = i.options[i.selectedIndex].value;
   const question = document.querySelector(".cont-2-sub");
@@ -8,6 +13,7 @@ const updateQ = () => {
   );
 };
 const updateL = () => {
+  const selectedA = listQ[window.selectedA - 1];
   const defaultL = ["N", "M", "O"];
   const inputs = document.querySelector(".elements_con");
   const select = document.querySelector("#n");
@@ -36,6 +42,17 @@ const update = (flag) => {
   updateL();
 };
 const setup = () => {
+  // removing skeleton
+  const skeleton = document.querySelector(".skeleton");
+  skeleton.remove();
+
+  // adds
+  const ano = elements.span("ano");
+  const assignment = elements.span("assignment", "Assignment");
+  const swiper = document.querySelector(".swiper");
+  swiper.appendChild(assignment);
+  swiper.appendChild(ano);
+
   update(3);
   document.querySelector(".left").addEventListener("click", () => {
     if (selectedA == 1) selectedA = maxA;
@@ -61,12 +78,11 @@ window.onload = () => {
   p.then((value) => {
     const result = JSON.parse(value);
     qlist = result;
+    listQ = Object.keys(qlist);
     maxA = Object.keys(qlist).length;
     setup();
   });
 };
-
-let selectedA = 1;
 // const qlist = {
 //   1 : {
 //     questions : [1,2,3,4,9,10],
@@ -83,9 +99,9 @@ let selectedA = 1;
 //   }
 // }
 // const tmpL;
-let qlist, maxA;
 
 const upA = function (flag) {
+  const selectedA = listQ[window.selectedA - 1];
   const assign1 = document.querySelector(".swiper");
   const ano = document.querySelector(".ano");
   document.querySelector("#assignment").value = selectedA;
