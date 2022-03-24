@@ -24,6 +24,15 @@ class Assignment_DB {
         }
         return $result;
     }
+    function createTable($table_name, $assoc_attrib = []) {
+        $query = "CREATE TABLE $table_name (";
+        $attrib = [];
+        foreach($assoc_attrib as $bob) {
+            array_push($attrib, "{$bob['name']}, {$bob['type']}". (isset($bob['primary_key']) && $bob['primary_key'])?" PRIMARY KEY": "");
+        }
+        $query .= implode(",", $attrib).")";
+        $this->query($query);
+    }
     function insertInto($table_name, $elements) {
         $elements = array_map('sanitizeEl' , $elements);
         $query = "insert into $table_name values(".implode(",",$elements).")";
