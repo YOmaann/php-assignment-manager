@@ -28,9 +28,28 @@ class Assignment_DB {
         $query = "CREATE TABLE $table_name (";
         $attrib = [];
         foreach($assoc_attrib as $bob) {
-            array_push($attrib, "{$bob['name']}, {$bob['type']}". (isset($bob['primary_key']) && $bob['primary_key'])?" PRIMARY KEY": "");
+            $t = "{$bob['name']} {$bob['type']}";
+            $t.= (isset($bob['primary_key']) && $bob['primary_key'])?" PRIMARY KEY": "";
+            array_push($attrib,  $t);
         }
         $query .= implode(",", $attrib).")";
+        // echo $query;
+        $this->query($query);
+    }
+    function dropTable($table_name) {
+        $query = "DROP TABLE $table_name";
+        return $this->query($query);
+    }
+    function createDatabase($db_name) {
+        global $host, $username, $password;
+        $this->connection = mysqli_connect($host, $username, $password);
+        // $this->check();
+        $query = "CREATE DATABASE IF NOT EXISTS $db_name";
+        return $this->query($query);
+    }
+    function dropDatabase($db_name) {global $host, $username, $password;
+        $this->connection = mysqli_connect($host, $username, $password);
+        $query = "DROP DATABASE $db_name";
         $this->query($query);
     }
     function insertInto($table_name, $elements) {

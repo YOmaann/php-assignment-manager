@@ -31,7 +31,7 @@ function multipleN() {
     global $N, $M, $L;
     $tmp = $N;
     $N = $N[0];
-    if(isset($N[1]))
+    if(isset($tmp[1]))
         $M = $tmp[1];
     // echo $M;
     $L = $tmp;
