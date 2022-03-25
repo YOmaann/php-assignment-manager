@@ -46,6 +46,12 @@ const setup = () => {
   const skeleton = document.querySelector(".skeleton");
   skeleton.remove();
 
+  // get Cookie
+  const last_a = getCookie("last_assignment");
+  const last_q = getCookie("last_question");
+
+  selectedA = last_a;
+
   // adds
   const ano = elements.span("ano");
   const assignment = elements.span("assignment", "Assignment");

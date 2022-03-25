@@ -1,5 +1,7 @@
 <?php
 
+
+define('ONE_WEEK', 7 * 86400);
 //intval
 
 $assignment_no = $_REQUEST["assignment"];
@@ -22,6 +24,9 @@ multipleN();
 
 // echo intval($M);
 
+// set Cookies
+setcookie("last_assignment", $assignment_no, time() + ONE_WEEK, "/");
+setcookie("last_question", $question_no, time() + ONE_WEEK, "/");
 
 $db = new Assignment_DB("assignment");
 $location = $db->getFunctionLocation($assignment_no, $question_no);
