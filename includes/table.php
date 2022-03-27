@@ -7,19 +7,19 @@ class Table {
         $this->result = "";
     }
     function getTable() {
-        global $result;
-        return "<table>$result</table>";
+        return "<table>$this->result</table>";
     }
     function addRow($data, $heading = false) {
-        global $result;
+        // global $result;
         $tmp = "";
+        // print_r($data);
         foreach($data as $d) {
             if($heading) 
             $tmp .= "<th>$d</th>";
             else
             $tmp .= "<td>$d</td>";
         }
-        $result .= "<tr>$tmp</tr>";
+        $this->result .= "<tr>$tmp</tr>";
     }
     function addHeadRow($data) {
         $this->addRow($data, true);

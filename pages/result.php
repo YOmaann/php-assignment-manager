@@ -48,7 +48,8 @@ $title = "Question $assignment_no - $question_no";
 
 <html>
     <head>
-    <link rel="stylesheet" href="../css/result.css">    
+    <link rel="stylesheet" href="../css/result.css">   
+    <link rel="stylesheet" href="../css/table.css">    
     <title>Question <?= $title ?></title></head>
     <body>
         <div class="answer">        

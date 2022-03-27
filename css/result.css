@@ -28,6 +28,8 @@ body {
 .body {
   font-size: 1.3rem;
   padding: 2rem;
+  max-height: 30rem;
+  /* overflow-y: scroll; */
   overflow-y: auto;
 }
 span {

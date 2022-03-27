@@ -47,8 +47,8 @@ const setup = () => {
   skeleton.remove();
 
   // get Cookie
-  const last_a = getCookie("last_assignment");
-  const last_q = getCookie("last_question");
+  const last_a = getCookie("last_assignment") | 1;
+  const last_q = getCookie("last_question") | 1;
 
   selectedA = last_a;
 
